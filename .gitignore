@@ -140,6 +140,7 @@ cython_debug/
 .url_shortener/db.sqlite3
 
 .vscode/settings.json
+
 Pipfile
 
-/Pipfile.lock
+Pipfile.lock
