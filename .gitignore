@@ -138,3 +138,5 @@ dmypy.json
 cython_debug/
 
 .url_shortener/db.sqlite3
+
+.vscode
