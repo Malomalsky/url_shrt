@@ -1,0 +1,5 @@
+TESTING = True
+WTF_CSRF_ENABLED = False
+DEBUG = False
+SQLALCHEMY_DATABASE_URI = 'sqlite:///tests/test.db'
+SQLALCHEMY_TRACK_MODIFICATIONS = False
