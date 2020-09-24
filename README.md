@@ -45,7 +45,7 @@ flask run
 { 
   "id" : "", (Автоинкремент)
   "original_url" : "", 
-  "custom_url": "", (Опционально, по дефолту - null)
+  "custom_url": "", (Опционально, по дефолту - null; должно быть уникально)
   "short_url": "", (Автогенерация, длинна = 5 букв),
   "date_created": "" (Автогенерация)
 }
@@ -66,7 +66,10 @@ flask run
 
 Демонстрация проводится на https://url-sh0rt.herokuapp.com
 
-* Добавим валидную ссылку:
+Если программа запущена локально - обращаться по 127.0.0.1:5000
+
+---
+### Добавим валидную ссылку:
 
 Запрос:
 
@@ -81,16 +84,39 @@ curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
 Ответ: 
 ```
 {
-  "custom_url":null,
-  "date_created":"2020-09-24T10:59:04.119242",
-  "id":1,
-  "original_url":"https://avito.ru",
-  "short_url":"ydhWz"}
+    "custom_url": null,
+    "date_created": "2020-09-24T16:18:59.181662",
+    "id": 2,
+    "original_url": "https://avito.ru",
+    "short_url": "hYCEm"
+}
  ```
+ 
+ 
+ ---
+ ### Попробуем добавить невалидную ссылку: 
+ 
+ Зарос:
+ ```
+ curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "original_url": "avito" 
+}'
+```
+
+Ответ: 
+```
+{
+    "message": "Not valid URL. Try again."
+}
+```
  
  Можно заметить, что если была введена валидная ссылка, сокращатель добавляет к ней 'https:///'
  
- * Добавим валидную ссылку вместе с кастомной 
+ ---
+ 
+ ### Добавим валидную ссылку вместе с кастомной 
  
 Запрос:
 
@@ -108,18 +134,97 @@ curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
 ```
 {
     "custom_url": "best-marketplace",
-    "date_created": "2020-09-24T11:04:13.322841",
-    "id": 2,
+    "date_created": "2020-09-24T16:16:41.195786",
+    "id": 1,
     "original_url": "https://avito.ru",
-    "short_url": "7cKyu"
+    "short_url": "aAE1l"
 }
 ```
 
-Попробуем перейти по https://url-sh0rt.herokuapp.com/best-marketplace и https://url-sh0rt.herokuapp.com/7cKyu
+Попробуем перейти по https://url-sh0rt.herokuapp.com/best-marketplace и https://url-sh0rt.herokuapp.com/hYCEm
 
 Спойлер - редирект работает! 
  
- 
- 
+--- 
+
+Внесем еще пару ссылок - для проверки PUT и DELETE - запросов: 
+
+```
+{
+    "custom_url": null,
+    "date_created": "2020-09-24T16:24:35.876784",
+    "id": 3,
+    "original_url": "https://vk.com",
+    "short_url": "ANjno"
+}
+```
+
+```
+{
+    "custom_url": "search",
+    "date_created": "2020-09-24T16:31:15.454145",
+    "id": 4,
+    "original_url": "https://yandex.ru",
+    "short_url": "L91Zy"
+}
+```
+
+---
+
+### Обновим информацию о vk.com. Добавим кастомное имя 'soc': 
+
+Запрос: 
+```
+curl --location --request PUT 'https://url-sh0rt.herokuapp.com/links/3' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "custom_url": "soc"
+}'
+```
+
+Ответ: 
+```{
+    "custom_url": "soc",
+    "date_created": "2020-09-24T16:24:35.876784",
+    "id": 3,
+    "original_url": "https://vk.com",
+    "short_url": "ANjno"
+}
+```
+
+*Кстати, если попытаться ввести неуникальное кастомное имя, программа вернет следующее сообщение:* 
+```
+{
+    "message": "Entered custom URL already existed."
+}
+```
+
+---
+
+### Удалим данные о vk.com 
+
+Запрос: 
+
+```
+curl --location --request DELETE 'https://url-sh0rt.herokuapp.com/links/3' \
+--header 'Content-Type: application/json' \
+--data-raw ''
+```
+
+Ответ: 
+```
+{
+    "custom_url": "soc",
+    "date_created": "2020-09-24T16:24:35.876784",
+    "id": 3,
+    "original_url": "https://vk.com",
+    "short_url": "ANjno"
+}
+```
+
+После чего данная информация будет удалена из БД. 
+
+
+
 
 
