@@ -96,7 +96,7 @@ curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
  ---
  ### Попробуем добавить невалидную ссылку: 
  
- Зарос:
+ Запрос:
  ```
  curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
 --header 'Content-Type: application/json' \
