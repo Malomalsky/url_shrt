@@ -37,8 +37,9 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('short_url', response.json)
 
-        # Тестириуем работоспособность редиректа на добавленную ссылку 
+        # Тестириуем работоспособность редиректа на добавленную ссылку
 
+        
         
     
     def test_add_not_valid_link(self):
@@ -58,6 +59,14 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('short_url', response.json)
         self.assertIn('custom_url', response.json)
+
+    def test_get_link_by_id(self):
+        """Получить информацию по id"""
+        headers = {"Content-Type": "application/json"}
+        response = self.app.get('/links/1', headers=headers)
+        self.assertEqual(response.status_code, 200)
+
+    
 
 
 
