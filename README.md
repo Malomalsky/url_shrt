@@ -62,7 +62,15 @@ flask run
 | /links/<id> | DELETE | Удаление информации (по id)                                                                           | -                                                                                                                                                                                   |
 
 
-**Важно** - редирект на оригинальные URL происходит при обращении на имя хоста (hostname/<short|custom>)
+**Важно** - редирект на оригинальные URL происходит при обращении на имя хоста 
+
+```
+hostname/<short|custom>,
+где hostname - 
+127.0.0.1:5000, если запущено локально; 
+https://url-sh0rt.herokuapp.com - захосченный сервис
+```
+
 
 
 .
@@ -245,7 +253,7 @@ curl --location --request DELETE 'https://url-sh0rt.herokuapp.com/links/3' \
 Валидация введенных URL производится с помощью регулярных выражений. Валидными считаются URL формата example.com или http|s://example.com. В первом случае к URL будет автоматически добавлен протокол: 'https://' 
 
 ### Тесты. 
-
+)                                                                    |
 Все тесты лежат [тут](https://github.com/Malomalsky/url_shrt/tree/master/url_shortener/tests)
 
 ### Бесплатный хостинг.
