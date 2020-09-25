@@ -271,7 +271,7 @@ hostname/custom_url
 
 ### Тесты. 
                                                                 
-Все тесты лежат [тут](https://github.com/Malomalsky/url_shrt/tree/master/url_shortener/tests)
+Все тесты лежат [тут](https://github.com/Malomalsky/url_shrt/tree/master/url_shortener/tests). Метод - по возвращаемым кодам состояний и полям возвращаемого JSON. 
 
 ### Бесплатный хостинг.
 
@@ -287,6 +287,8 @@ hostname/custom_url
 
 ### Ошибки и коды состояний. 
 
+* Not valid URL - внсение невалидного URL (!= example.com & http|s://example.com
+* Entered custom URL already existed - попытка внесения неуникально кастомного URL
 * 200 - при успешном GET
 * 302 - при успешном редиректе 
 * 400 - при вводе невалидного URL, неуникального кастомного URL при POST; при попытке редиректа на несуществующие короткие/кастомные ссылки. 
