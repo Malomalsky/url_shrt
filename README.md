@@ -82,6 +82,9 @@ https://url-sh0rt.herokuapp.com - захосченный сервис
 ---
 ### Добавим валидную ссылку:
 
+* Метод - POST
+* URL - /add_link
+
 Запрос:
 
 ```
@@ -107,6 +110,9 @@ curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
  ---
  ### Попробуем добавить невалидную ссылку: 
  
+* Метод - POST
+* URL - /add_link
+ 
  Запрос:
  ```
  curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
@@ -128,6 +134,9 @@ curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
  ---
  
  ### Добавим валидную ссылку вместе с кастомной 
+
+* Метод - POST
+* URL - /add_link
  
 Запрос:
 
@@ -184,6 +193,9 @@ curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
 
 ### Обновим информацию о vk.com. Добавим кастомное имя 'soc': 
 
+* Метод - PUT
+* URL - /links/&lt;id>
+
 Запрос: 
 ```
 curl --location --request PUT 'https://url-sh0rt.herokuapp.com/links/3' \
@@ -214,6 +226,9 @@ curl --location --request PUT 'https://url-sh0rt.herokuapp.com/links/3' \
 ---
 
 ### Удалим данные о vk.com 
+
+* Метод - DELETE
+* URL - /links/&lt;id>
 
 Запрос: 
 
@@ -269,6 +284,12 @@ hostname/custom_url
 ### UI
 
 В качестве доступного и удобного UI была выбрана платформа Telegram. 
+
+### Ошибки и коды состояний. 
+
+* 200 - при успешном GET
+* 302 - при успешном редиректе 
+* 400 - при вводе невалидного URL, неуникального кастомного URL при POST; при попытке редиректа на несуществующие короткие/кастомные ссылки. 
 
 
 
