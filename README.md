@@ -157,7 +157,7 @@ curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
     "date_created": "2020-09-24T16:16:41.195786",
     "id": 1,
     "original_url": "https://avito.ru",
-    "short_url": "aAE1l"
+    "short_url": "z1YEL"
 }
 ```
 
