@@ -161,7 +161,7 @@ curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
 }
 ```
 
-Попробуем перейти по https://url-sh0rt.herokuapp.com/best-marketplace и https://url-sh0rt.herokuapp.com/hYCEm
+Попробуем перейти по https://url-sh0rt.herokuapp.com/best-marketplace и https://url-sh0rt.herokuapp.com/z1YEL
 
 Спойлер - редирект работает! 
  
