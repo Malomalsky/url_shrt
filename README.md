@@ -1,4 +1,4 @@
-# URL-SH0RT - легковесный сокращатель ссылок на Flask/JSON API. 
+# URL-SH0RT - сокращатель ссылок на Flask/JSON API. 
 
 API размещено по адресу https://url-sh0rt.herokuapp.com (index отсутсвует). Авторизация не требуется.
 
