@@ -102,7 +102,7 @@ curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
     "date_created": "2020-09-24T16:18:59.181662",
     "id": 2,
     "original_url": "https://avito.ru",
-    "short_url": "hYCEm"
+    "short_url": "tSTu5"
 }
  ```
  
@@ -157,11 +157,11 @@ curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
     "date_created": "2020-09-24T16:16:41.195786",
     "id": 1,
     "original_url": "https://avito.ru",
-    "short_url": "z1YEL"
+    "short_url": "CRbKN"
 }
 ```
 
-Попробуем перейти по https://url-sh0rt.herokuapp.com/best-marketplace и https://url-sh0rt.herokuapp.com/z1YEL
+Попробуем перейти по https://url-sh0rt.herokuapp.com/best-marketplace и https://url-sh0rt.herokuapp.com/CRbKN
 
 Спойлер - редирект работает! 
  
@@ -277,13 +277,28 @@ hostname/custom_url
 
 Как было сказано выше, API размещено на heroku.com. Обращаться по https://url-sh0rt.herokuapp.com
 
-### Нагрузочное тестирование 
+### Нагрузочное тестирование.
 
-Нагрузочное тестирование можно провести с помощью встроенных в heroku методов! Но есть ли смысл, если приложение крутится на бесплатном плане c одним веб-воркером? 
+Тестировалось https://url-sh0rt.herokuapp.com
+
+Тестирование было приведено при помощи плагина для heroku - loader.io. 
+Результаты тестирования: 
+
+* Первый тест, 250 GET-запросов за минуту https://bit.ly/2S06DUr
+* Второй тест, 500 GET-запросов за минуту https://bit.ly/335BncV
+* Третий тест, 1000 GET-запросов за минуту https://bit.ly/3j4zwe0
+* Четвертый тест, 5000 GET-запросов за минуту. Сервис упал! https://bit.ly/3i1cByR
 
 ### UI
 
-В качестве доступного и удобного UI была выбрана платформа Telegram. 
+В качестве доступного и удобного UI была выбрана платформа Telegram. Код бота лежит [тут](https://github.com/Malomalsky/url_short_th).
+Схема работы: 
+
+| Сигнатура команды                              | Описание                                                                                                                                            |
+|------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| /post_orig &lt;original_url>                   | POST-запрос, добавляет URL в базу данных; &lt;original_url>; возвращает готовую к работе укороченную ссылку ответным сообщением.                    |
+| /post_custom &lt;original_url> &lt;custom_url> | POST-запрос, добавляет оригинальный и кастомный URL в базу данных; возвращает готовую к работе укороченную и кастомную  ссылкы ответным сообщением. |
+| /get &lt;id>                                   | GET-запрос, возвращает JSON-объект по запрашиваемому ID.                
 
 ### Ошибки и коды состояний. 
 
