@@ -302,7 +302,7 @@ hostname/custom_url
 
 ### Ошибки и коды состояний. 
 
-* Not valid URL - внсение невалидного URL (!= example.com & http|s://example.com
+* Not valid URL - внсение невалидного URL (!= example.com & http|s://example.com)
 * Entered custom URL already existed - попытка внесения неуникально кастомного URL
 * 200 - при успешном GET
 * 302 - при успешном редиректе 
