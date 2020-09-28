@@ -161,9 +161,7 @@ curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
 }
 ```
 
-Попробуем перейти по https://url-sh0rt.herokuapp.com/best-marketplace и https://url-sh0rt.herokuapp.com/CRbKN
-
-Спойлер - редирект работает! 
+**Важно!** Раз в день heroku дропает базу данных (по крайней мере, на бесплатной и hobby - подписках). Поэтому на момент проверки БД скорее всего будет пуста. Чтобы воспользоваться приложением, сначала нужно добавить туда ссылки! [тут написано подробнее](https://stackoverflow.com/questions/51570833/stop-heroku-dyno-from-cycling). Это подводит к мысли о том, что БД нужно хостить на отдельном сервисе. 
  
 --- 
 
