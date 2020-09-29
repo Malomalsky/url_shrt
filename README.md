@@ -102,7 +102,7 @@ curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
     "date_created": "2020-09-24T16:18:59.181662",
     "id": 2,
     "original_url": "https://avito.ru",
-    "short_url": "tSTu5"
+    "short_url": "SmuBD"
 }
  ```
  
@@ -157,11 +157,12 @@ curl --location --request POST 'https://url-sh0rt.herokuapp.com/add_link' \
     "date_created": "2020-09-24T16:16:41.195786",
     "id": 1,
     "original_url": "https://avito.ru",
-    "short_url": "CRbKN"
+    "short_url": "FoAgl"
 }
 ```
-
-**Важно!** Раз в день heroku дропает базу данных (по крайней мере, на бесплатной и hobby - подписках). Поэтому на момент проверки БД скорее всего будет пуста. Чтобы воспользоваться приложением, сначала нужно добавить туда ссылки! [тут написано подробнее](https://help.heroku.com/K1PPS2WM/why-are-my-file-uploads-missing-deleted), [и тут](https://devcenter.heroku.com/articles/sqlite3). Это подводит к мысли о том, что БД нужно хостить на отдельном сервисe, или, как советуют в оффициальной документации, переходить на Postgres и использовать специальный аддон. 
+Попробуйте перейти: 
+* https://url-sh0rt.herokuapp.com/best-marketplace
+* https://url-sh0rt.herokuapp.com/FoAgl
  
 --- 
 
